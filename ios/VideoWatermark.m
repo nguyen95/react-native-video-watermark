@@ -40,26 +40,29 @@ RCT_EXPORT_METHOD(convert:(NSString *)videoUri imageUri:(nonnull NSString *)imag
     UIGraphicsBeginImageContext(sizeOfVideo);
     
 
+    CGFloat width = myImage.size.width;
+    CGFloat height = myImage.size.height;
+    
     int watermarkPositionInt = [MyFunctions getWatermarkInt:watermarkPosition];
     switch(watermarkPositionInt) {
         case 1:
-            [myImage drawInRect:CGRectMake(0, 0, 300, 300)];
+            [myImage drawInRect:CGRectMake(0, 0, width, height)];
             break;        
 
         case 2:
-            [myImage drawInRect:CGRectMake(0, sizeOfVideo.height -300, 300, 300)];
+            [myImage drawInRect:CGRectMake(0, sizeOfVideo.height - height, width, height)];
             break;        
 
         case 3:
-            [myImage drawInRect:CGRectMake(sizeOfVideo.width - 300, 0, 300, 300)];
+            [myImage drawInRect:CGRectMake(sizeOfVideo.width - width, 0, width, height)];
             break;        
 
         case 4:
-            [myImage drawInRect:CGRectMake(sizeOfVideo.width -300, sizeOfVideo.height - 300, 300, 300)];
+            [myImage drawInRect:CGRectMake(sizeOfVideo.width - width, sizeOfVideo.height - height, width, height)];
             break;     
             
         default:
-            [myImage drawInRect:CGRectMake(0, 0, 300, 300)];
+            [myImage drawInRect:CGRectMake(0, 0, width, height)];
             break;
     }
     // [myImage drawInRect:CGRectMake(0, 0, sizeOfVideo.width, sizeOfVideo.height)];
