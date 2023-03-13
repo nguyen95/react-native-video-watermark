@@ -139,7 +139,7 @@ RCT_EXPORT_METHOD(convert:(NSString *)videoUri imageUri:(nonnull NSString *)imag
     }];
 }
 
-RCT_EXPORT_METHOD(convertPromise:(NSString *)videoUri imageUri:(nonnull NSString *)imageUri watermarkPosition:(nonnull NSString *)watermarkPosition resolve:(RCTPromiseResolveBlock)resolve)
+RCT_EXPORT_METHOD(convertPromise:(NSString *)videoUri imageUri:(nonnull NSString *)imageUri watermarkPosition:(nonnull NSString *)watermarkPosition resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 {
     RCTLogInfo(@"Checking passed variables %@ %@ %@", videoUri, imageUri, watermarkPosition);
     [self watermarkVideoWithImagePromise:videoUri imageUri:imageUri watermarkPosition:watermarkPosition resolve:resolve];
