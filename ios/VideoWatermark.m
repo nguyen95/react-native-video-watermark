@@ -121,7 +121,7 @@ RCT_EXPORT_METHOD(convert:(NSString *)videoUri imageUri:(nonnull NSString *)imag
     exportSession.videoComposition=videoComposition;
     
     exportSession.outputURL = [NSURL fileURLWithPath:destinationPath];
-    exportSession.outputFileType = AVFileTypeAppleM4A;
+    exportSession.outputFileType = AVFileTypeMPEG4;
     [exportSession exportAsynchronouslyWithCompletionHandler:^{
         switch (exportSession.status)
         {
@@ -253,7 +253,7 @@ RCT_EXPORT_METHOD(convertPromise:(NSString *)videoUri imageUri:(nonnull NSString
     exportSession.videoComposition=videoComposition;
     
     exportSession.outputURL = [NSURL fileURLWithPath:destinationPath];
-    exportSession.outputFileType = AVFileTypeAppleM4A;
+    exportSession.outputFileType = AVFileTypeMPEG4;
     [exportSession exportAsynchronouslyWithCompletionHandler:^{
         switch (exportSession.status)
         {
