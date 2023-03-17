@@ -115,13 +115,13 @@ RCT_EXPORT_METHOD(convert:(NSString *)videoUri imageUri:(nonnull NSString *)imag
     NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd_HH-mm-ss"];
-    NSString *destinationPath = [documentsDirectory stringByAppendingFormat:@"/output_%@.mov", [dateFormatter stringFromDate:[NSDate date]]];
+    NSString *destinationPath = [documentsDirectory stringByAppendingFormat:@"/output_%@.mp4", [dateFormatter stringFromDate:[NSDate date]]];
     
     AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetHighestQuality];
     exportSession.videoComposition=videoComposition;
     
     exportSession.outputURL = [NSURL fileURLWithPath:destinationPath];
-    exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+    exportSession.outputFileType = AVFileTypeAppleM4A;
     [exportSession exportAsynchronouslyWithCompletionHandler:^{
         switch (exportSession.status)
         {
@@ -247,13 +247,13 @@ RCT_EXPORT_METHOD(convertPromise:(NSString *)videoUri imageUri:(nonnull NSString
     NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd_HH-mm-ss"];
-    NSString *destinationPath = [documentsDirectory stringByAppendingFormat:@"/output_%@.mov", [dateFormatter stringFromDate:[NSDate date]]];
+    NSString *destinationPath = [documentsDirectory stringByAppendingFormat:@"/output_%@.mp4", [dateFormatter stringFromDate:[NSDate date]]];
     
     AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetHighestQuality];
     exportSession.videoComposition=videoComposition;
     
     exportSession.outputURL = [NSURL fileURLWithPath:destinationPath];
-    exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+    exportSession.outputFileType = AVFileTypeAppleM4A;
     [exportSession exportAsynchronouslyWithCompletionHandler:^{
         switch (exportSession.status)
         {
