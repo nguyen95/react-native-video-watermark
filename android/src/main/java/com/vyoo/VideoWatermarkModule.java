@@ -35,7 +35,7 @@ public class VideoWatermarkModule extends ReactContextBaseJavaModule {
       watermarkVideoWithImage(videoPath, imagePath, watermarkPosition, callback);
   }
 
-  public void watermarkVideoWithImage(String videoPath, String imagePath, String watermarkPosition final Callback callback) {
+  public void watermarkVideoWithImage(String videoPath, String imagePath, String watermarkPosition, final Callback callback) {
     File destFile = new File(this.getReactApplicationContext().getFilesDir(), "converted.mp4");
       if (!destFile.exists()) {
           try {
@@ -45,7 +45,7 @@ public class VideoWatermarkModule extends ReactContextBaseJavaModule {
           }
       }
       final String destinationPath = destFile.getPath();
-      private Position wtrkMrkPos;
+      Position wtrkMrkPos;
       switch(watermarkPosition) {
         
         case "LEFT_TOP":
@@ -64,7 +64,7 @@ public class VideoWatermarkModule extends ReactContextBaseJavaModule {
             wtrkMrkPos = GlWatermarkFilter.Position.RIGHT_BOTTOM;
             break;
         
-        default 
+        default:
             wtrkMrkPos = GlWatermarkFilter.Position.LEFT_TOP;
             break;
             
