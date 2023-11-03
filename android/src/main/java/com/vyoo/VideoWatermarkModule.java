@@ -45,7 +45,7 @@ public class VideoWatermarkModule extends ReactContextBaseJavaModule {
           }
       }
       final String destinationPath = destFile.getPath();
-      Position wtrkMrkPos;
+      GlWatermarkFilter.Position wtrkMrkPos;
       switch(watermarkPosition) {
         
         case "LEFT_TOP":
@@ -71,7 +71,7 @@ public class VideoWatermarkModule extends ReactContextBaseJavaModule {
       }
       try {
           new Mp4Composer(Uri.fromFile(new File(videoPath)), destinationPath, reactContext)
-                  .filter(new GlWatermarkFilter(BitmapFactory.decodeStream(reactContext.getContentResolver().openInputStream(Uri.fromFile(new File(imagePath))))), wtrkMrkPos)
+                  .filter(new GlWatermarkFilter(BitmapFactory.decodeStream(reactContext.getContentResolver().openInputStream(Uri.fromFile(new File(imagePath))))))
                   .listener(new Mp4Composer.Listener() {
                       @Override
                       public void onProgress(double progress) {
